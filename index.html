@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Apology for my love ❤️</title>
+    <style>
+        /* This is the CSS part - it styles your page! */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec; /* A soft pink background */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* A cute, friendly font */
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            padding: 40px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #e91e63; /* Hot pink text */
+            font-size: 2.5em;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2em;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            margin-right: 15px;
+        }
+
+        #noBtn {
+            background-color: #f44336; /* Red */
+            color: white;
+            position: absolute; /* This lets us move it with JavaScript! */
+        }
+        
+        #responseGif {
+            display: none; /* Hide the GIF initially */
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>I'm So Sorry, euodi! 🥺</h1>
+        <p>I was acting like a total retard yesterday night. I was into myself so much that I dismissed your circumstances and the effort you've been putting in despite all the things you are juggling. I hope you know how I acted yesterday wasn't because I wanted to hurt you or make you feel dismissed, and it wasn't a reflection of my love and commitment towards you. I wasn't  taking into consideration how you were stretched too thin and still was trying to be there for me as much as you could. I was too focused on my emotions to let myself see and understand yours. You are right, you shouldn't have been the one to apologize for something I took and interpreted in bad light. I'm sorry for the headache I caused. I'm sorry for giving you additional stress on top of what you already have. I don't expect you to immediately accept my apology, but I want it to be said. I thought it'd be better if i did it this way instead of just sending you another senseless paragraph on instagram. by the way I had to learn how to code and create this from scratch. I think its worth every single second I spent on it. I hope you'll enloy the rest of the webpage🙏😭</p>
+        <div class="buttons">
+            <button id="yesBtn">Yes! 🥰</button>
+            <button id="noBtn">No 😠</button>
+        </div>
+        
+        <img id="responseGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejE2d2JwdDlkaHd2cG54aHg0cWFtcTRmMHNucXJvZ3Nwd3V2dXVtaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" alt="Cute bears hugging gif">
+    </div>
+
+    <script>
+        // This is the JavaScript part - it makes the page interactive!
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const responseGif = document.getElementById('responseGif');
+
+        // Make the "No" button run away!
+        noBtn.addEventListener('mouseover', () => {
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const noBtnRect = noBtn.getBoundingClientRect();
+
+            let newTop = Math.random() * (containerRect.height - noBtnRect.height);
+            let newLeft = Math.random() * (containerRect.width - noBtnRect.width);
+
+            noBtn.style.top = newTop + 'px';
+            noBtn.style.left = newLeft + 'px';
+        });
+
+        // What happens when she clicks "Yes"
+        yesBtn.addEventListener('click', () => {
+            document.querySelector('h1').innerText = "YAY! I LOVE YOU! ❤️";
+            document.querySelector('p').innerText = "I promise to be better. Wanna have an actual date soon?";
+            document.querySelector('.buttons').style.display = 'none'; // Hide buttons
+            responseGif.style.display = 'block'; // Show the happy GIF
+        });
+    </script>
+
+</body>
+</html>
