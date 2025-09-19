@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>An Apology for my love ❤️</title>
+    <title>An Apology for You ❤️</title>
     <style>
-        /* This is the CSS part - it styles your page! */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            /* === CHANGE #1: GRADIENT BACKGROUND === */
             background: linear-gradient(135deg, #e1bee7, #fff9c4); /* Purple to Yellow gradient */
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* A cute, friendly font */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             overflow: hidden;
             margin: 0;
@@ -27,7 +27,7 @@
         }
 
         h1 {
-            color: #e91e63; /* Hot pink text */
+            color: #e91e63;
             font-size: 2.5em;
         }
 
@@ -50,63 +50,110 @@
         }
 
         #yesBtn {
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50;
             color: white;
             margin-right: 15px;
         }
 
         #noBtn {
-            background-color: #f44336; /* Red */
+            background-color: #f44336;
             color: white;
-            position: absolute; /* This lets us move it with JavaScript! */
+            position: absolute;
         }
         
         #responseGif {
-            display: none; /* Hide the GIF initially */
+            display: none;
             margin-top: 20px;
+            max-width: 80%;
         }
 
+        /* === CHANGE #2: NEW CSS FOR THE GAME === */
+        #gameContainer {
+            display: none; /* Hidden by default */
+        }
+
+        .question {
+            font-size: 1.5em;
+            color: #7b1fa2; /* A darker purple */
+            margin-bottom: 20px;
+        }
+
+        .options button {
+            background-color: #ffc107; /* A nice yellow */
+            color: #333;
+            margin: 5px;
+            width: 200px;
+        }
+
+        .options button:hover {
+            background-color: #ffca28;
+            transform: scale(1.05);
+        }
+        
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>I'm So Sorry, euodi!</h1>
-        <p>I was acting like a total retard yesterday night. I was into myself so much that I dismissed your circumstances and the effort you've been putting in despite all the things you are juggling. I hope you know how I acted yesterday wasn't because I wanted to hurt you or make you feel dismissed, and it wasn't a reflection of my love and commitment towards you. I wasn't  taking into consideration how you were stretched too thin and still was trying to be there for me as much as you could. I was too focused on my emotions to let myself see and understand yours. You are right, you shouldn't have been the one to apologize for something I took and interpreted in bad light. I'm sorry for the headache I caused. I'm sorry for giving you additional stress on top of what you already have. I don't expect you to immediately accept my apology, but I want it to be said. I thought it'd be better if i did it this way instead of just sending you another senseless paragraph on instagram. by the way I had to learn how to code and create this from scratch. I think its worth every single second I spent on it. I hope you'll enloy the rest of the webpage🙏😭</p>
+    <div class="container" id="apologyContainer">
+        <h1>I'm So Sorry, Euodi!</h1>
+        <p>I acted like a total retard yesterday night. I was into myself so much that I dismissed your circumstances and the effort you've been putting in despite all the things you are juggling. I hope you know how I acted yesterday wasn't because I wanted to hurt you or make you feel dismissed, and it wasn't a reflection of my love and commitment towards you. I wasn't  taking into consideration how you were stretched too thin and still was trying to be there for me as much as you could. I was too focused on my emotions to let myself see and understand yours. You are right, you shouldn't have been the one to apologize for something I took and interpreted in bad light. I'm sorry for the headache I caused. I'm sorry for giving you additional stress on top of what you already have. I don't expect you to immediately accept my apology, but I want it to be said. I thought it'd be better if i did it this way instead of just sending you another senseless paragraph on instagram. by the way I had to learn how to code and create this from scratch. I think its worth every single second I spent on it. I hope you'll enloy the rest of the webpage🙏😭</p>
+        
         <div class="buttons">
             <button id="yesBtn">Yes! 🥰</button>
             <button id="noBtn">No 😠</button>
         </div>
-        
+    </div>
+
+    <div class="container" id="gameContainer">
+        <div class="question">What do you think you'll be feeling after you are done with this?</div>
+        <div class="options">
+            <button onclick="checkAnswer(true)">Happy and content</button>
+            <button onclick="checkAnswer(true)">Ecstatic and crying tears of joy and amusement from my pure comittment and will to fucking learn to code this</button> <button onclick="checkAnswer(false)">The Park</button>
+        </div>
+    </div>
+
+    <div class="container" id="finalMessageContainer" style="display: none;">
+        <h1>YAY! I LOVE YOU! ❤️</h1>
+        <p>I promise to be better. Let's get boba soon?</p>
         <img id="responseGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejE2d2JwdDlkaHd2cG54aHg0cWFtcTRmMHNucXJvZ3Nwd3V2dXVtaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" alt="Cute bears hugging gif">
     </div>
 
+
     <script>
-        // This is the JavaScript part - it makes the page interactive!
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
+        const apologyContainer = document.getElementById('apologyContainer');
+        const gameContainer = document.getElementById('gameContainer');
+        const finalMessageContainer = document.getElementById('finalMessageContainer');
         const responseGif = document.getElementById('responseGif');
 
-        // Make the "No" button run away!
         noBtn.addEventListener('mouseover', () => {
-            const container = document.querySelector('.container');
-            const containerRect = container.getBoundingClientRect();
+            const containerRect = apologyContainer.getBoundingClientRect();
             const noBtnRect = noBtn.getBoundingClientRect();
-
             let newTop = Math.random() * (containerRect.height - noBtnRect.height);
             let newLeft = Math.random() * (containerRect.width - noBtnRect.width);
-
             noBtn.style.top = newTop + 'px';
             noBtn.style.left = newLeft + 'px';
         });
 
-        // What happens when she clicks "Yes"
+        // === CHANGE #2: UPDATED JAVASCRIPT LOGIC ===
+        
+        // When she clicks "Yes", hide the apology and show the game
         yesBtn.addEventListener('click', () => {
-            document.querySelector('h1').innerText = "YAY! I LOVE YOU! ❤️";
-            document.querySelector('p').innerText = "I promise to be better. Wanna have an actual date soon?";
-            document.querySelector('.buttons').style.display = 'none'; // Hide buttons
-            responseGif.style.display = 'block'; // Show the happy GIF
+            apologyContainer.style.display = 'none';
+            gameContainer.style.display = 'block';
         });
+
+        // Function to check the game answer
+        function checkAnswer(isCorrect) {
+            if (isCorrect) {
+                gameContainer.style.display = 'none';
+                finalMessageContainer.style.display = 'block';
+                responseGif.style.display = 'block';
+            } else {
+                alert("Hmm, that's not it! Try again, silly! 😉");
+            }
+        }
     </script>
 
 </body>
