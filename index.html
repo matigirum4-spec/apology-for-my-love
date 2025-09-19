@@ -10,8 +10,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* === CHANGE #1: GRADIENT BACKGROUND === */
-            background: linear-gradient(135deg, #e1bee7, #fff9c4); /* Purple to Yellow gradient */
+          
+            background: linear-gradient(135deg, #e1bee7, #fff9c4); 
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             overflow: hidden;
@@ -67,7 +67,7 @@
             max-width: 80%;
         }
 
-        /* === CHANGE #2: NEW CSS FOR THE GAME === */
+        
         #gameContainer {
             display: none; /* Hidden by default */
         }
@@ -136,15 +136,13 @@
             noBtn.style.left = newLeft + 'px';
         });
 
-        // === CHANGE #2: UPDATED JAVASCRIPT LOGIC ===
-        
-        // When she clicks "Yes", hide the apology and show the game
+       
         yesBtn.addEventListener('click', () => {
             apologyContainer.style.display = 'none';
             gameContainer.style.display = 'block';
         });
 
-        // Function to check the game answer
+        
         function checkAnswer(isCorrect) {
             if (isCorrect) {
                 gameContainer.style.display = 'none';
